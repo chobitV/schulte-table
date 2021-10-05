@@ -1,56 +1,29 @@
-const table = document.querySelector('#table');
+const shuffle = (array) => {
+  const arr = [...array];
 
-const genereteShuffledNumbers = (maxNumber = 25) => {
-  const genereteNumbers = [...new Array(maxNumber).keys()].map(i => ++i);
-  const shuffledNumbers = [];
-
-  for (let i = maxNumber; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    const temp = i;
-    shuffledNumbers[i] = j;
-    genereteNumbers[j] = temp;
+  for (let i = arr.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
   }
 
-  console.log(shuffledNumbers);
-  // shuffledNumbers.forEach(i)
-  // genereteNumbers.reverse().reduce((acc, i, arr) => {
-  //   const r = Math.floor(Math.random() * i); // 7
-    
-  //   arr[r] = arr[i];
-  //   console.log(arr);
-  //   return [...acc, r];
-  // }, []);
+  return arr;
 }
 
-// function shuffleArray(array) {
-//   for (var i = array.length - 1; i > 0; i--) {
-//       var j = Math.floor(Math.random() * (i + 1));
-//       var temp = array[i];
-//       array[i] = array[j];
-//       array[j] = temp;
-//   }
-// }
+const genereteNumbers = (maxNumber = 25) => {
+  return [...new Array(maxNumber).keys()].map(i => ++i);
+}
 
-// function shuffleArray(array) {
-//   for (let i = array.length - 1; i > 0; i--) {
-//     const j = Math.floor(Math.random() * (i + 1));
-//     [array[i], array[j]] = [array[j], array[i]];
-//   }
-// }
+const numbersArray = genereteNumbers();
+const shuffleNumbersArray = shuffle(numbersArray);
 
-// const shuffle = (array) => {
-//   const arr = [];
-//   for (let i = array.length - 1; i > 0; i--) {
-//     const j = Math.floor(Math.random() * i);
-//     const temp = array[i];
-//     arr[i] = j;
-//     arr[j] = temp;
-//   }
+const list = document.querySelector('#list');
+const listFragment = document.createDocumentFragment();
 
-//   return arr;
-// };
-genereteShuffledNumbers();
+shuffleNumbersArray.forEach((number) => {
+  const item = document.createElement('li');
+  item.classList.add('schulte-table__item');
+  item.textContent = number;
+  listFragment.appendChild(item);
+});
 
-
-// const a = new Array(25);
-// console.log(a, shuffle(new Array(25)));
+list.appendChild(listFragment);
