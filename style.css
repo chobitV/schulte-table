@@ -1,43 +1,35 @@
 body {
   font-size: 20px;
+  font-family: 'Quicksand', sans-serif;
   min-height: 100vh;
   margin: 0;
-
   display: grid;
   grid-template-columns: 300px 1fr;
 }
 
 main {
-  display: grid;
-  justify-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
   padding: 30px;
 }
 
 aside {
-  padding: 30px;
-  background-color: #ddd;
-}
-
-.schulte-table {
-  --table-size: 5;
-
-  width: 100vh;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  list-style: none;
-
   display: grid;
-  grid-template: repeat(var(--table-size), 1fr) / repeat(var(--table-size), 1fr);
-  gap: 5px;
+  grid-template-rows: auto 1fr;
+  gap: 20px;
+  padding: 30px;
+  background-color: #78909c;
 }
 
-.schulte-table__item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+h1 {
+  margin: 0;
+}
 
-  border: 1px solid #333;
+.settings {
+  display: grid;
+  align-content: end;
+  gap: 20px;
 }
 
 @media print {

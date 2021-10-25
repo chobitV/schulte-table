@@ -4,15 +4,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Schulte Table</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
     <aside>
       <h1>Schulte Table</h1>
+      <form class="settings">
+        <!-- <select id="table-size">
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select> -->
+        <button id="button-reload" class="btn settings__reload" type="button">Reload</button>
+        <button id="button-print" class="btn settings__print" type="button">Print</button>
+      </form>
     </aside>
     <main>
-      <ul id="list" class="schulte-table"></ul>
+      <schulte-table></schulte-table>
     </main>
   </body>
   <script src="script.js"></script>
